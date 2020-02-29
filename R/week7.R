@@ -34,4 +34,11 @@ week7_tbl %>%
   ggplot(aes(x = gender, y = timeLapsed)) +
     geom_boxplot() +
     labs(x= "Gender", y = "Time Elapsed (secs)")
-  
+ggplot(week7_tbl, aes(x = q5, y = q7, col = condition)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(position = position_jitter(0.1)) +
+  labs(x = "Score on Q5", y = "Score on Q7", color = "Experimental Condition") + 
+  theme(rect = element_blank(),
+        legend.position = "bottom",
+        legend.background = element_rect(fill = gray.colors(1, .875,.875)),
+        legend.key = element_rect())
